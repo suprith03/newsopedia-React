@@ -10,16 +10,18 @@ const NewsHeadlines = () => {
   useEffect(() => {
     const fetchHeadlines = async () => {
       try {
-        const response = await axios.get('https://newsapi.org/v2/top-headlines', { //fetch data
+        const response = await axios.get('https://newsdata.io/api/1/news', { //fetch data
           params: {
             country: 'in',
-            apiKey: process.env.REACT_APP_NEWS_API_KEY,//fetch api-key from .env (hidden in .gitignore)
+            apiKey: process.env.REACT_APP_NEWSDATA_API_KEY, //api keys in .env
+            language: 'en',
+            category: 'top'
           },
         });
-        setHeadlines(response.data.articles.slice(0, 7)); 
+        setHeadlines(response.data.results.slice(0, 7)); // no.of headlines
       } catch (err) {
         console.error("Error fetching news headlines:", err.response ? err.response.data : err.message);
-        setError('Failed to fetch news headlines. Please try again later.'); // if cannot fetch data, error meessage.
+        setError('Failed to fetch news headlines. Please try again later.'); // if unable to fetch data , error occurs
       }
     };
 
@@ -37,26 +39,26 @@ const NewsHeadlines = () => {
   return (
     <div className="news-container">
       {error && <div className="error">{error}</div>}
-      <h1>Today's News.. </h1>
+      <h1>Top-News</h1>
       <div className="news-headlines">
         <h2>Latest News Headlines</h2>
         <ul>
           {headlines.map((article, index) => (
             <li key={index} className="headline-item" onClick={() => handleArticleClick(article)}>
               <h3>{article.title}</h3>
-              <p>{article.source.name} - {new Date(article.publishedAt).toLocaleDateString()}</p>
+              <p>{article.source_id} - {new Date(article.pubDate).toLocaleDateString()}</p>
             </li>
           ))}
         </ul>
       </div>
       {selectedArticle && (
-        <div className="model" onClick={closeModal}>
-          <div className="model-content" onClick={(e) => e.stopPropagation()}>
+        <div className="modal" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <span className="close" onClick={closeModal}>&times;</span>
             <h2>{selectedArticle.title}</h2>
-            <p>{selectedArticle.source.name} - {new Date(selectedArticle.publishedAt).toLocaleDateString()}</p>
-            <p>{selectedArticle.content || selectedArticle.description}</p>
-            <p className="read-more"><a href={selectedArticle.url} target="_blank" rel="noopener noreferrer">Read more</a></p>
+            <p>{selectedArticle.source_id} - {new Date(selectedArticle.pubDate).toLocaleDateString()}</p>
+            <p>{selectedArticle.description}</p>
+            <p className="read-more"><a href={selectedArticle.link} target="_blank" rel="noopener noreferrer">Read more</a></p>
           </div>
         </div>
       )}
