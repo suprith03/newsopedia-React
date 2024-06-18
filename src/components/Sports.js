@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import NewsHeadlines from './NewsHeadlines';
+import NewsHeadlines from './newsHeadlines';
 import './Sports.css';
 
 const Sports = () => {
@@ -8,8 +8,8 @@ const Sports = () => {
 
   return (
     <div className="news-container">
-      <h1 onClick={() => navigate('/')}>Sports</h1>
-      <NewsHeadlines category="sports" />
+      <h1 onClick={() => navigate('/')}>Sports ⚽️</h1>
+      <NewsHeadlines category="sports ⚽️" />
     </div>
   );
 };

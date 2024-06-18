@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import NewsHeadlines from './NewsHeadlines';
+import NewsHeadlines from './newsHeadlines';
 import './Technology.css';
 
 const Technology = () => {
@@ -8,8 +8,8 @@ const Technology = () => {
 
   return (
     <div className="news-container">
-      <h1 onClick={() => navigate('/')}>Technology</h1>
-      <NewsHeadlines category="technology" />
+      <h1 onClick={() => navigate('/')}>Technology 📱</h1>
+      <NewsHeadlines category="technology 📱" />
     </div>
   );
 };

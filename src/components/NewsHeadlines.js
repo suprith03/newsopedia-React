@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
-import './NewsHeadlines.css';
+import './newsHeadlines.css';
 
 const NewsHeadlines = ({ category }) => {
   const [headlines, setHeadlines] = useState([]);
@@ -21,7 +21,7 @@ const NewsHeadlines = ({ category }) => {
             token: process.env.REACT_APP_GNEWS_API_KEY, // GNews API key
             lang: 'en',
             country: 'in',
-            max: 5,
+            max: 7,
             topic: currentCategory
           },
         });
@@ -48,7 +48,7 @@ const NewsHeadlines = ({ category }) => {
   };
 
   const renderNavButtons = () => {
-    const categories = ["sports", "technology", "politics", "health", "entertainment"];
+    const categories = ["sports ⚽️", "technology 📱", "politics 💲", "health 😷", "entertainment 📺"];
     const isHome = location.pathname === "/";
     return (
       <>
