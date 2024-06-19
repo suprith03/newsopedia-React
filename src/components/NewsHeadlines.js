@@ -48,7 +48,7 @@ const NewsHeadlines = ({ category }) => {
   };
 
   const renderNavButtons = () => {
-    const categories = ["sports ⚽️", "technology 📱", "politics 💲", "health 😷", "entertainment 📺"];
+    const categories = ["sports", "technology", "politics", "health", "entertainment"];
     const isHome = location.pathname === "/";
     return (
       <>

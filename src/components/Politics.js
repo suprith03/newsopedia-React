@@ -9,7 +9,7 @@ const Politics = () => {
   return (
     <div className="news-container">
       <h1 onClick={() => navigate('/')}>Politics 💲</h1>
-      <NewsHeadlines category="politics 💲" />
+      <NewsHeadlines category="politics" />
     </div>
   );
 };
