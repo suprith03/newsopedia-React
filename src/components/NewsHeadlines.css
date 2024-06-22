@@ -20,6 +20,9 @@ h1 {
   padding: 20px;
   border-radius: 10px;
 }
+ h1:hover{
+  color: rgb(0, 0, 0);
+ }
 
 .news-headlines h2 {
   margin-bottom: 20px;
@@ -45,7 +48,7 @@ h1 {
 .headline-item h3 {
   margin: 0 0 10px 0;
   font-size: 1em;
-  color: #007bff;
+  color: #000000;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -136,22 +139,22 @@ h1 {
   justify-content: space-around;
   margin-bottom: 20px;
   background-color: #007bff;
-  padding: 10px;
+  padding: 15px;
   border-radius: 10px;
-  font-size: large;
+  font-size: xx-large;   
 }
 
 .navbar button {
   background: none;
   border: none;
-  color: #000000;
+  color: #ffffff;
   font-size: 1em;
   cursor: pointer;
   transition: color 0.3s ease;
 }
 
 .navbar button:hover {
-  color: #ffffff;
+  color: #000000;
 }
 .news-container {
   width: 80%;
