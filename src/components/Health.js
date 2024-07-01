@@ -8,7 +8,7 @@ const Health = () => {
 
   return (
     <div className="news-container">
-      <h1 onClick={() => navigate('/')}>Health 😷</h1>
+      <h1 onClick={() => navigate('/')}>Health</h1>
       <NewsHeadlines category="health" />
     </div>
   );
