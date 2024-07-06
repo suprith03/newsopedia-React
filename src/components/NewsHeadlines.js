@@ -52,7 +52,7 @@ const NewsHeadlines = ({ category }) => {
     const isHome = location.pathname === "/";
     return (
       <>
-        {!isHome && <button onClick={() => navigate('/')}>Home</button>}
+        {!isHome && <button onClick={() => navigate('/')}>{'< Home'}</button>}
         {categories.map((cat) => (
           cat !== currentCategory && <button key={cat} onClick={() => handleCategoryChange(cat)}>{cat.charAt(0).toUpperCase() + cat.slice(1)}</button>
         ))}
