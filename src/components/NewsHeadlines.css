@@ -1,5 +1,5 @@
 body {
-  font-family: 'Arial', sans-serif;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   background-color: #f4f4f4;
   color: #333;
   margin: 0;
@@ -16,19 +16,18 @@ h1 {
 
 .news-container {
   padding: 20px;
-  max-width: 850px;
+  max-width: 1250px;
   margin: 0 auto;
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgb(79, 79, 79);
   text-align: center; 
 }
 
 .news-headlines h2 {
   margin-bottom: 20px;
   font-size: 1.5em;
-  color: #3a3a3a;
-  border-bottom: 2px solid #e0e0e0;
+  color: #222222;
+  border-bottom: 2px solid #828181;
   padding-bottom: 10px;
   text-align: left; 
 }
@@ -39,6 +38,8 @@ h1 {
 }
 
 .headline-item {
+  display: flex;
+  align-items: center;
   margin-bottom: 20px;
   padding: 15px;
   border-bottom: 1px solid #e0e0e0;
@@ -49,6 +50,19 @@ h1 {
 .headline-item:hover {
   background-color: #f1f1f1;
   transform: scale(1.02);
+}
+
+.headline-item .headline-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 15px;
+  border-radius: 5px;
+}
+
+.headline-item .headline-content {
+  flex-grow: 1;
+  text-align: left;
 }
 
 .headline-item h3 {
@@ -146,7 +160,7 @@ h1 {
   background-color: #006aff;
   padding: 15px;
   border-radius: 10px;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 .navbar button {

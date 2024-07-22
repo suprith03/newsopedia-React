@@ -6,11 +6,10 @@ import Entertainment from './components/Entertainment';
 import Politics from './components/Politics';
 import Health from './components/Health';
 import Technology from './components/Technology';
-import './App.css';
 
 const Header = () => {
   const location = useLocation();
-  return location.pathname === '/' ? <h1>Breaking-News</h1> : null;
+  return location.pathname === '/' ? <h1>Breaking News</h1> : null;
 };
 
 const App = () => {

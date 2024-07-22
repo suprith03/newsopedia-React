@@ -28,7 +28,7 @@ const NewsHeadlines = ({ category }) => {
         setHeadlines(response.data.articles);
       } catch (err) {
         console.error("Error fetching news headlines:", err.response ? err.response.data : err.message);
-        setError('Failed to fetch news headlines. Please try again later.');
+        setError('Failed to fetch News Headlines. Please come back again later.');
       }
     };
 
@@ -72,8 +72,11 @@ const NewsHeadlines = ({ category }) => {
         <ul>
           {headlines.map((article, index) => (
             <li key={index} className="headline-item" onClick={() => handleArticleClick(article)}>
-              <h3>{article.title}</h3>
-              <p>{article.source.name} - {new Date(article.publishedAt).toLocaleDateString()}</p>
+              <img src={article.image} alt={article.title} className="headline-image"/>
+              <div className="headline-content">
+                <h3>{article.title}</h3>
+                <p>{article.source.name} - {new Date(article.publishedAt).toLocaleDateString()}</p>
+              </div>
             </li>
           ))}
         </ul>
