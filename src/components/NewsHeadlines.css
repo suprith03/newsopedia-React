@@ -4,6 +4,7 @@ body {
   color: #333;
   margin: 0;
   padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1 {
@@ -12,6 +13,12 @@ h1 {
   font-size: 2.5em;
   color: #181818;
   cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+h1:hover {
+  color: #006aff;
+  transform: scale(1.1);
 }
 
 .news-container {
@@ -21,6 +28,12 @@ h1 {
   background-color: #fff;
   border-radius: 10px;
   text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.news-container:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
 .news-headlines h2 {
@@ -30,6 +43,11 @@ h1 {
   border-bottom: 2px solid #828181;
   padding-bottom: 10px;
   text-align: left;
+  transition: color 0.3s ease;
+}
+
+.news-headlines h2:hover {
+  color: #006aff;
 }
 
 .news-headlines ul {
@@ -43,13 +61,14 @@ h1 {
   margin-bottom: 20px;
   padding: 15px;
   border-bottom: 1px solid #e0e0e0;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 
 .headline-item:hover {
   background-color: #f1f1f1;
-  transform: scale(1.02);
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .headline-item .headline-image {
@@ -58,6 +77,11 @@ h1 {
   object-fit: cover;
   margin-right: 15px;
   border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+.headline-item:hover .headline-image {
+  transform: rotate(5deg) scale(1.1);
 }
 
 .headline-item .headline-content {
@@ -72,15 +96,24 @@ h1 {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  max-width: 90%;
+  transition: color 0.3s ease;
 }
 
 .headline-item:hover h3 {
+  color: #006aff;
   white-space: normal;
+  max-width: none;
 }
 
 .headline-item p {
   margin: 0;
   color: #777;
+  transition: color 0.3s ease;
+}
+
+.headline-item:hover p {
+  color: #444;
 }
 
 .error {
@@ -88,6 +121,14 @@ h1 {
   font-size: 1.2em;
   margin-top: 20px;
   text-align: center;
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
 }
 
 .modal {
@@ -102,6 +143,12 @@ h1 {
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
 }
 
 .modal-content {
@@ -113,6 +160,12 @@ h1 {
   max-width: 600px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-30px); }
+  to { transform: translateY(0); }
 }
 
 .close {
@@ -120,6 +173,7 @@ h1 {
   float: right;
   font-size: 28px;
   font-weight: bold;
+  transition: color 0.3s ease;
 }
 
 .close:hover,
@@ -132,6 +186,7 @@ h1 {
 .modal-content h2 {
   margin-top: 0;
   color: #000000;
+  transition: color 0.3s ease;
 }
 
 .modal-content p {
@@ -147,9 +202,11 @@ h1 {
 .read-more a {
   color: #007bff;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .read-more a:hover {
+  color: #0056b3;
   text-decoration: underline;
 }
 
@@ -161,6 +218,11 @@ h1 {
   padding: 15px;
   border-radius: 10px;
   font-size: 1.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.navbar:hover {
+  background-color: #000000;
 }
 
 .navbar button {
@@ -169,11 +231,12 @@ h1 {
   color: #fff;
   font-size: 1em;
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .navbar button:hover {
-  color: #000000;
+  color: #fff200;
+  transform: translateY(-3px);
 }
 
 @media (max-width: 768px) {
@@ -196,6 +259,9 @@ h1 {
 
   .headline-item h3 {
     font-size: 1.1em;
+    white-space: normal;
+    text-overflow: initial;
+    overflow: visible;
   }
 
   .headline-item p {
