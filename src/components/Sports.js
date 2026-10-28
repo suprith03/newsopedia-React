@@ -1,16 +1,16 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import NewsHeadlines from './newsHeadlines';
+import NewsHeadlines from './NewsHeadlines';
 import './Sports.css';
 
 const Sports = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="news-container">
+    <main className="page-shell">
       <h1 onClick={() => navigate('/')}>Sports</h1>
       <NewsHeadlines category="sports" />
-    </div>
+    </main>
   );
 };
 
