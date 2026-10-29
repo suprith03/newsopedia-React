@@ -33,14 +33,13 @@ const NewsHeadlines = ({ category }) => {
       setIsLoading(true);
       setError(null);
       try {
-        const response = await axios.get('https://gnews.io/api/v4/top-headlines', {
+        const response = await axios.get('/.netlify/functions/news', {
           params: {
-            token: process.env.REACT_APP_GNEWS_API_KEY, // GNews API key
+            category: currentCategory,
             lang: 'en',
             country: 'in',
             max: pageSize,
-            page,
-            topic: currentCategory
+            page
           },
         });
         if (isCurrentRequest) {
